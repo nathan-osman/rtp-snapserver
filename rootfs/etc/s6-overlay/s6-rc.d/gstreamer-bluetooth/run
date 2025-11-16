@@ -1,0 +1,10 @@
+#!/command/execlineb -P
+
+redirfd -w 1 /tmp/snapfifo \
+gst-launch-1.0 -v \
+  udpsrc port=5004 caps="application/x-rtp,media=audio,encoding-name=OPUS,payload=96" ! \
+  rtpjitterbuffer latency=100 ! \
+  rtpopusdepay ! opusdec ! \
+  audioconvert ! audioresample ! \
+  audio/x-raw,format=S16LE,channels=2,rate=48000 ! \
+  filesink location=/tmp/audio.fifo
