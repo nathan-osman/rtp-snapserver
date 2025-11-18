@@ -1,6 +1,6 @@
 ## rtp-snapserver
 
-This handy Docker container accepts an OPUS audio stream via RTP and uses an embedded Snapcast server to stream the audio to connected clients.
+This handy Docker container accepts an OPUS audio stream via RTP and uses an embedded Snapcast server to stream the audio to connected clients. The container also includes [Snapweb](https://github.com/badaix/snapweb).
 
 ### Usage
 
