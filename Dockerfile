@@ -16,8 +16,9 @@ RUN apk add --no-cache \
 
 # Install Snapweb into the doc_root
 RUN \
-  wget -qO - https://github.com/badaix/snapweb/releases/download/${SNAPWEB_VERSION}/snapweb.zip | \
-  unzip - -od /usr/share/snapserver/snapweb
+  wget -q https://github.com/badaix/snapweb/releases/download/${SNAPWEB_VERSION}/snapweb.zip && \
+  unzip snapweb.zip -od /usr/share/snapserver/snapweb && \
+  rm snapweb.zip
 
 # Add configuration files
 COPY rootfs /
